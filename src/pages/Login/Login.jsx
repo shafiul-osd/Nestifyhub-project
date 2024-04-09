@@ -4,10 +4,12 @@ import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
 import { Helmet } from "react-helmet";
 import { FaGoogle ,FaGithub} from "react-icons/fa";
 import { signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
-import auth from"../.././firebase/firebase.config.js"
+import auth from"../../firebase/firebase.config.js"
+import toast from"../../components/Toast/Toast.jsx"
+
 
 const Login = () => {
-
+	
 	const { signInUser } = useContext(AuthContext);
 	
 	const googleProvider = new GoogleAuthProvider();
@@ -16,20 +18,20 @@ const Login = () => {
 	const handleGoogleLogin = ()=>{
 		signInWithPopup(auth,googleProvider)
 		.then(result => {
-			alert("Successfully Logged In with Google");
+			toast("Logged In Google","success","Success Login")
 		})
 		.catch(err => {
-			alert(err.message)
+			toast(err.message,"danger","Error")
 		})
 	};
 	
 	const handleGithubLogin = ()=>{
 		signInWithPopup(auth,githubProvider)
 		.then(result => {
-			alert("Successfully Logged In with GitHub");
+			toast("Successfully Logged In with Github","success","Success")
 		})
 		.catch(err => {
-			alert(err.message)
+			toast(err.message,"danger","Error")
 		})
 	}
 	
@@ -41,10 +43,10 @@ const Login = () => {
 
 		signInUser(email, password)
 			.then(result => {
-				alert("Successfully LoggedIn")
+				toast("Successfully Logged In","success","Success")
 			})
 			.catch(err => {
-				alert(err.message)
+				toast(err.message,"danger","Error");
 			})
 	}
 	return (

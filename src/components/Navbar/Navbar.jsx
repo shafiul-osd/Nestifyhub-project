@@ -4,6 +4,7 @@ import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
 import { HiMenuAlt4 } from "react-icons/hi";
 import Drawer from 'react-modern-drawer'
 import 'react-modern-drawer/dist/index.css'
+import toast from"../../components/Toast/Toast.jsx"
 const Navbar = () => {
     const links = (
         <>
@@ -18,10 +19,10 @@ const Navbar = () => {
     const handleLogOut = () => {
         LogOut()
             .then(result => {
-                alert("Successfully Logged Out");
+                toast("Logged Out","info","Logged Out")
             })
             .catch(err => {
-                alert(err.message);
+                toast(err.message,"danger","Failed")
             });
     };
 		const [isOpen,setIsOpen] = useState(false)

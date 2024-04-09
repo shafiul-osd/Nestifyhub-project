@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
+import toast from"../../components/Toast/Toast.jsx"
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
@@ -13,10 +14,10 @@ const Register = () => {
 
     createUser(email, password)
       .then(result => {
-        alert("Registered Successfully")
+        toast(" Registered Successfully","success","Success")
       })
       .catch(err => {
-        alert(err.message)
+        toast(err.message,"danger","Error")
       })
   }
 
