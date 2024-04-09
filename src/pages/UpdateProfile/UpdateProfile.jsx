@@ -1,12 +1,12 @@
 import React from 'react'
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 const UpdateProfile = () => {
   return (
     <div>
-   	<Helmet>
-   		<title>NestifyHub | UpdateProfile</title>
-   	</Helmet>
-   	<div>UpdateProfile</div>
+      <Helmet>
+        <title>NestifyHub | UpdateProfile</title>
+      </Helmet>
+      <div>UpdateProfile</div>
     </div>
   )
 }

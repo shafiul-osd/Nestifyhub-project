@@ -11,17 +11,17 @@ const Navbar = () => {
         </>
     );
 
-    const { user,LogOut } = useContext(AuthContext);
-	 
-	 const handleLogOut = ()=>{
-	 	LogOut()
-	 	.then(result => {
-	 		alert("Succssfully Logged Out")
-	 	})
-	 	.catch(err => {
-	 		alert(err.message)
-	 	})
-	 }
+    const { user, LogOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        LogOut()
+            .then(result => {
+                alert("Succssfully Logged Out")
+            })
+            .catch(err => {
+                alert(err.message)
+            })
+    }
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -45,11 +45,11 @@ const Navbar = () => {
                     <div className="flex items-center gap-2">
                         {user ? (
                             <div className="flex items-center gap-2 md:gap-5">
-		                         <div className="avatar">
-		                             <div className=" w-8 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-		                                 <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-		                             </div>
-		                         </div>
+                                <div className="avatar">
+                                    <div className=" w-8 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+                                </div>
                                 <Link><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary">Logout</button></Link>
                             </div>
                         ) : (
