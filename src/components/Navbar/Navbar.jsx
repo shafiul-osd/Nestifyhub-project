@@ -57,11 +57,13 @@ const Navbar = () => {
                     <div className="flex items-center gap-2">
                         {user ? (
                             <div className="flex items-center gap-2 md:gap-5">
+                              <div className="tooltip tooltip-bottom mt-3" data-tip={user.displayName}>
                                 <div className="avatar">
                                     <div className=" w-8 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                         <img src={user.photoURL} />
                                     </div>
                                 </div>
+										</div>
                                 <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary">Logout</button></Link>
                             </div>
                         ) : (
