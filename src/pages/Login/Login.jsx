@@ -21,7 +21,7 @@ const Login = () => {
 			})
 	}
 	return (
-		<div className="w-full md:w-[70%] mx-auto">
+		<div className="w-[95%] md:w-[70%] mx-auto">
 			<Helmet>
 				<title>NestifyHub | Login</title>
 			</Helmet>
