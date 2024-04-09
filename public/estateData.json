@@ -1,0 +1,112 @@
+{
+  "estates": [
+    {
+      "id": 1,
+      "estate_title": "Cozy Family Home",
+      "segment_name": "Residential",
+      "description": "A beautiful family home with ample space and modern amenities.",
+      "price": "$350,000",
+      "status": "sale",
+      "area": "2000 sq ft",
+      "location": "City Center",
+      "facilities": ["living room", "swimming pool", "kitchen"],
+      "image": "cozy_family_home.jpg"
+    },
+    {
+      "id": 2,
+      "estate_title": "Luxury Villa",
+      "segment_name": "Residential",
+      "description": "An exquisite villa offering luxurious living with stunning views.",
+      "price": "$1,200,000",
+      "status": "sale",
+      "area": "5000 sq ft",
+      "location": "Suburban Hills",
+      "facilities": ["spacious garden", "home theater", "gym"],
+      "image": "luxury_villa.jpg"
+    },
+    {
+      "id": 3,
+      "estate_title": "Modern Apartment",
+      "segment_name": "Residential",
+      "description": "A sleek and contemporary apartment in a prime urban location.",
+      "price": "$2,500/month",
+      "status": "rent",
+      "area": "1000 sq ft",
+      "location": "Downtown District",
+      "facilities": ["balcony", "fitness center", "24/7 security"],
+      "image": "modern_apartment.jpg"
+    },
+    {
+      "id": 4,
+      "estate_title": "Riverside Retreat",
+      "segment_name": "Residential",
+      "description": "A charming riverside retreat perfect for nature lovers.",
+      "price": "$500,000",
+      "status": "sale",
+      "area": "3000 sq ft",
+      "location": "Riverside Village",
+      "facilities": ["private dock", "fireplace", "garden gazebo"],
+      "image": "riverside_retreat.jpg"
+    },
+    {
+      "id": 5,
+      "estate_title": "Family Haven",
+      "segment_name": "Residential",
+      "description": "A cozy haven for families seeking comfort and tranquility.",
+      "price": "$400,000",
+      "status": "sale",
+      "area": "2500 sq ft",
+      "location": "Suburban Community",
+      "facilities": ["playground", "study room", "garage"],
+      "image": "family_haven.jpg"
+    },
+    {
+      "id": 6,
+      "estate_title": "Country Cottage",
+      "segment_name": "Residential",
+      "description": "A quaint country cottage nestled in scenic surroundings.",
+      "price": "$300,000",
+      "status": "sale",
+      "area": "1500 sq ft",
+      "location": "Rural Retreat",
+      "facilities": ["garden", "fire pit", "porch"],
+      "image": "country_cottage.jpg"
+    },
+    {
+      "id": 7,
+      "estate_title": "Lakefront Retreat",
+      "segment_name": "Residential",
+      "description": "A serene lakefront retreat offering peace and relaxation.",
+      "price": "$600,000",
+      "status": "sale",
+      "area": "3500 sq ft",
+      "location": "Lakefront Community",
+      "facilities": ["private beach", "deck", "boathouse"],
+      "image": "lakefront_retreat.jpg"
+    },
+    {
+      "id": 8,
+      "estate_title": "Urban Loft",
+      "segment_name": "Residential",
+      "description": "A stylish urban loft with industrial-chic vibes and city views.",
+      "price": "$800,000",
+      "status": "sale",
+      "area": "1800 sq ft",
+      "location": "Downtown Loft District",
+      "facilities": ["open floor plan", "exposed brick", "rooftop terrace"],
+      "image": "urban_loft.jpg"
+    },
+    {
+      "id": 9,
+      "estate_title": "Mountain Retreat",
+      "segment_name": "Residential",
+      "description": "An idyllic mountain retreat offering breathtaking views and seclusion.",
+      "price": "$700,000",
+      "status": "sale",
+      "area": "4000 sq ft",
+      "location": "Mountain Range",
+      "facilities": ["hiking trails", "hot tub", "deck with panoramic views"],
+      "image": "mountain_retreat.jpg"
+    }
+  ]
+}
