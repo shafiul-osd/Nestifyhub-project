@@ -3,13 +3,15 @@ import { Link } from "react-router-dom"
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
 import { Helmet } from "react-helmet";
 import { FaGoogle ,FaGithub} from "react-icons/fa";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
 import auth from"../.././firebase/firebase.config.js"
 
 const Login = () => {
 
 	const { signInUser } = useContext(AuthContext);
+	
 	const googleProvider = new GoogleAuthProvider();
+	const githubProvider = new GithubAuthProvider();
 	
 	const handleGoogleLogin = ()=>{
 		signInWithPopup(auth,googleProvider)
@@ -19,7 +21,18 @@ const Login = () => {
 		.catch(err => {
 			alert(err.message)
 		})
+	};
+	
+	const handleGithubLogin = ()=>{
+		signInWithPopup(auth,githubProvider)
+		.then(result => {
+			alert("Successfully Logged In with GitHub");
+		})
+		.catch(err => {
+			alert(err.message)
+		})
 	}
+	
 	const handleLogin = (e) => {
 		e.preventDefault();
 		const form = new FormData(e.currentTarget);
@@ -65,7 +78,7 @@ const Login = () => {
 				<span className="divider m-0 p-0">or</span>
 				<div className="flex justify-center gap-10 items-center my-4">
 					<button onClick={handleGoogleLogin} className="btn btn-outline text-xl"><FaGoogle /></button>
-					<button className="btn btn-outline text-xl"><FaGithub /></button>
+					<button onClick={handleGithubLogin} className="btn btn-outline text-xl"><FaGithub /></button>
 				</div>
 			</div>
 		</div>
