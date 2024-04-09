@@ -14,7 +14,7 @@ const Navbar = () => {
     );
 
     const { user, LogOut } = useContext(AuthContext);
-
+	//console.log(user.photoURL)
     const handleLogOut = () => {
         LogOut()
             .then(result => {
@@ -59,7 +59,7 @@ const Navbar = () => {
                             <div className="flex items-center gap-2 md:gap-5">
                                 <div className="avatar">
                                     <div className=" w-8 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="avatar" />
+                                        <img src={user.photoURL} />
                                     </div>
                                 </div>
                                 <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary">Logout</button></Link>

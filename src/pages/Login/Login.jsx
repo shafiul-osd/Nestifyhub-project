@@ -2,10 +2,24 @@ import { useContext } from 'react'
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
 import { Helmet } from "react-helmet";
+import { FaGoogle ,FaGithub} from "react-icons/fa";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import auth from"../.././firebase/firebase.config.js"
 
 const Login = () => {
 
 	const { signInUser } = useContext(AuthContext);
+	const googleProvider = new GoogleAuthProvider();
+	
+	const handleGoogleLogin = ()=>{
+		signInWithPopup(auth,googleProvider)
+		.then(result => {
+			alert("Successfully Logged In with Google");
+		})
+		.catch(err => {
+			alert(err.message)
+		})
+	}
 	const handleLogin = (e) => {
 		e.preventDefault();
 		const form = new FormData(e.currentTarget);
@@ -48,7 +62,11 @@ const Login = () => {
 					</div>
 					<h4 className="text-xs md:text-sm text-center">Do not have an account? <Link className="text-blue-700" to="/register">Create Account</Link></h4>
 				</form>
-
+				<span className="divider m-0 p-0">or</span>
+				<div className="flex justify-center gap-10 items-center my-4">
+					<button onClick={handleGoogleLogin} className="btn btn-outline text-xl"><FaGoogle /></button>
+					<button className="btn btn-outline text-xl"><FaGithub /></button>
+				</div>
 			</div>
 		</div>
 	)
