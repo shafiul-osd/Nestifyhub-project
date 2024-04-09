@@ -1,13 +1,15 @@
-import { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
-
+import { HiMenuAlt4 } from "react-icons/hi";
+import Drawer from 'react-modern-drawer'
+import 'react-modern-drawer/dist/index.css'
 const Navbar = () => {
     const links = (
         <>
-            <li><NavLink to="/"> Home</NavLink></li>
-            <li><NavLink to="/updateprofile"> Update Profile</NavLink></li>
-            <li><NavLink to="/userprofile"> User Profile</NavLink></li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/updateprofile">Update Profile</NavLink></li>
+            <li><NavLink to="/userprofile">User Profile</NavLink></li>
         </>
     );
 
@@ -16,24 +18,34 @@ const Navbar = () => {
     const handleLogOut = () => {
         LogOut()
             .then(result => {
-                alert("Succssfully Logged Out")
+                alert("Successfully Logged Out");
             })
             .catch(err => {
-                alert(err.message)
-            })
+                alert(err.message);
+            });
+    };
+		const [isOpen,setIsOpen] = useState(false)
+		const toggleDrawer = () => {
+        setIsOpen((prevState) => !prevState)
     }
     return (
-        <div>
-            <div className="navbar bg-base-100">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                        </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            {links}
-                        </ul>
+        <div className="w-full mx-auto">
+            <div className="navbar bg-base-100 w-full">
+                <div className="navbar-start ">
+                    <div className="btn btn-ghost md:hidden text-2xl">
+                        <label onClick={toggleDrawer}><HiMenuAlt4 /></label>
                     </div>
+                    
+            <Drawer
+                open={isOpen}
+                onClose={toggleDrawer}
+                direction='right'
+                className=''
+            >
+                <ul className="menu p-4 w-60 min-h-full bg-base-200 text-base-content">
+               	{links}
+                </ul>
+            </Drawer>
                     <a className="btn btn-ghost text-xl">NestifyHub</a>
                 </div>
                 <div className="navbar-center hidden md:flex">
@@ -47,10 +59,10 @@ const Navbar = () => {
                             <div className="flex items-center gap-2 md:gap-5">
                                 <div className="avatar">
                                     <div className=" w-8 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="avatar" />
                                     </div>
                                 </div>
-                                <Link><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary">Logout</button></Link>
+                                <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary">Logout</button></Link>
                             </div>
                         ) : (
                             <Link to="/login"><button className="btn md:btn-md btn-sm btn-primary">Login</button></Link>

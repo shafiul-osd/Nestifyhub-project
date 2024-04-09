@@ -13,23 +13,24 @@ import { Pagination } from 'swiper/modules';
 const Banner = () => {
   return (
     <>
-      <Swiper
+      <div className="grid grid-cols-1 gap-2 w-[95%] mx-auto bg-cover bg-center h-[50vh] md:h-screen rounded-lg p-5">
+      	<div className="col-span-1 border rounded-lg">
+   <Swiper
         pagination={{
           dynamicBullets: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper h-full"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
+        <SwiperSlide><img className="h-full w-full z-0" src="https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className="h-full w-full" src="https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className="h-full w-full" src="https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className="h-full w-full" src="https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className="h-full w-full" src="https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className="h-full w-full" src="https://img.freepik.com/free-photo/house-isolated-field_1303-23773.jpg" alt="" /></SwiperSlide>
+   </Swiper>
+      	</div>
+      </div>
     </>
   );
 }

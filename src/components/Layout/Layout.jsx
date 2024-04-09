@@ -4,7 +4,7 @@ import Navbar from"../Navbar/Navbar.jsx"
 import Footer from"../Footer/Footer.jsx"
 const Layout = () => {
   return (
-    <div>
+    <div class="max-w-[1440px] mx-auto">
    	<Navbar/>
    	<Outlet/>
    	<Footer/>

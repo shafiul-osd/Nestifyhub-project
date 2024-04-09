@@ -21,13 +21,13 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <div className="w-full md:w-[70%] mx-auto">
       <Helmet>
         <title>NestifyHub | Register </title>
       </Helmet>
-      <div className="my-20">
+      <div className="my-20 border-2 rounded-2xl p-4">
         <h1 className="text-2xl text-center">Please Register</h1>
-        <form onSubmit={handleRegister} className="card-body">
+        <form onSubmit={handleRegister} className="card-body ">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
