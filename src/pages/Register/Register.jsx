@@ -1,25 +1,42 @@
-import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
-import toast from"../../components/Toast/Toast.jsx"
+import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
+import toast from "../../components/Toast/Toast.jsx";
+
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateProfile, auth, LogOut } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
+    const name = form.get("name");
+    const photoURL = form.get("photo");
+    
+    if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
+    	return toast("Password must have atleast 6 carecter and a lowerCase and upperCase letter", "warning", "Error");
+    }
 
     createUser(email, password)
-      .then(result => {
-        toast(" Registered Successfully","success","Success")
+      .then((userCredential) => {
+        updateProfile(userCredential.user, {
+          displayName: name,
+          photoURL: photoURL
+        })
+        .then(() => {
+          LogOut(auth);
+          toast("Registered Successfully", "success", "Success");
+        })
+        .catch((error) => {
+          toast(error.message, "danger", "Error");
+        });
       })
-      .catch(err => {
-        toast(err.message,"danger","Error")
-      })
-  }
+      .catch((error) => {
+        toast(error.message, "danger", "Error");
+      });
+  };
 
   return (
     <div className="w-[95%]  md:w-[70%] mx-auto">
@@ -52,17 +69,15 @@ const Register = () => {
               <span className="label-text">Password</span>
             </label>
             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Register</button>
           </div>
           <h4 className="text-xs md:text-sm text-center">Already have an account? <Link className="text-blue-700" to="/login">Login</Link></h4>
         </form>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

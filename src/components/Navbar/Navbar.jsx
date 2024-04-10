@@ -65,12 +65,12 @@ const Navbar = () => {
                                     </div>
                                 </div>
 										</div>
-                                <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary">Logout</button></Link>
+                                <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary hover:btn-outline">Logout</button></Link>
                             </div>
                         ) : (
                         	<div className="flex items-center gap-1 md:gap-4">
-                           	 <Link to="/register"><button className="btn md:btn-md btn-sm btn-primary">Register</button></Link>
-                           	 <Link to="/login"><button className="btn md:btn-md btn-sm btn-primary">Login</button></Link>
+                           	 <Link to="/register"><button className="btn md:btn-md btn-sm btn-primary hover:btn-outline">Register</button></Link>
+                           	 <Link to="/login"><button className="btn md:btn-md btn-sm btn-primary hover:btn-outline">Login</button></Link>
                            </div>
                         )}
                     </div>
