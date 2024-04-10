@@ -44,10 +44,10 @@ const Navbar = () => {
                     <Drawer
                         open={isOpen}
                         onClose={toggleDrawer}
-                        direction='right'
-                        className=''
+                        direction='left'
+                        className='w-20'
                     >
-                        <ul className="menu p-4 w-60 min-h-full bg-base-200 text-base-content">
+                        <ul className="menu w-full min-h-full bg-base-200 text-base-content">
                             {links}
                         </ul>
                     </Drawer>
