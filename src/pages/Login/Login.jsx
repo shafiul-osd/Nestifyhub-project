@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { useContext,useState } from 'react'
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
 import { Helmet } from "react-helmet";
-import { FaGoogle ,FaGithub} from "react-icons/fa";
+import { FaGoogle ,FaGithub,FaRegEye,FaEyeSlash} from "react-icons/fa";
 import { signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
 import auth from"../../firebase/firebase.config.js"
 import toast from"../../components/Toast/Toast.jsx"
@@ -11,7 +11,7 @@ import toast from"../../components/Toast/Toast.jsx"
 const Login = () => {
 	
 	const { signInUser } = useContext(AuthContext);
-	
+	const [show,setShow] = useState(false);
 	const googleProvider = new GoogleAuthProvider();
 	const githubProvider = new GithubAuthProvider();
 	
@@ -50,24 +50,25 @@ const Login = () => {
 			})
 	}
 	return (
-		<div className="w-[95%] md:w-[70%] mx-auto">
+		<div className="w-[90%] md:w-[70%] mx-auto">
 			<Helmet>
 				<title>NestifyHub | Login</title>
 			</Helmet>
-			<div className="my-20 border-2 rounded-xl p-4">
-				<h1 className="text-2xl text-center">Please Login</h1>
+			<div className="my-20 border-2 rounded-xl py-3">
+				<h1 className="text-2xl text-center my-4">Please Login</h1>
 				<form onSubmit={handleLogin} className="card-body">
 					<div className="form-control">
-						<label className="label">
-							<span className="label-text">Email</span>
-						</label>
-						<input type="email" placeholder="email" className="input input-bordered" name="email" required />
+						
+						<input type="email" placeholder="Email" className="border-b pb-3 mb-4 outline-none w-full" name="email" required />
 					</div>
 					<div className="form-control">
-						<label className="label">
-							<span className="label-text">Password</span>
-						</label>
-						<input type="password" placeholder="password" className="input input-bordered" name="password" required />
+						
+						<div className="relative">
+							<input type={show ? 'text' : 'password'} placeholder="Password" className="border-b pb-3 mb-4 outline-none w-full" name="password" required />
+							<span onClick={()=>setShow(!show)} className="absolute top-1 right-3 text-lg p-0 m-0">
+								{show ? <FaEyeSlash/> : <FaRegEye/>}
+							</span>
+						</div>
 						<label className="label">
 							<a href="#" className="label-text-alt link link-hover">Forgot password?</a>
 						</label>
