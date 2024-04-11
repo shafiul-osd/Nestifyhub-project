@@ -14,7 +14,7 @@ const UserProfile = () => {
             <div>
                 <div className="card glass">
                     <div className="avatar">
-                        <div className="w-32 h-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mx-auto mt-10">
+                        <div className="w-32 h-32 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2 mx-auto mt-10">
                             <img src={user?.photoURL} alt="Profile pic" />
                         </div>
                     </div>
@@ -23,7 +23,7 @@ const UserProfile = () => {
                         <p className="text-center text-lg">{user?.email || "Email"}</p>
                         <div className="card-actions justify-end">
                             <Link className="mx-auto" to="/updateprofile">
-                                <button className="btn btn-primary mx-auto my-5 hover:btn-outline">Edit Profile</button>
+                                <button className="btn btn-secondary btn-outline mx-auto my-5 hover:btn-outline">Edit Profile</button>
                             </Link>
                         </div>
                     </div>

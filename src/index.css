@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a.active{
+    border: 1px solid #ff008c;
+    background: transparent !important;
+    color: black !important;
+}

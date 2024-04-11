@@ -74,14 +74,14 @@ const Login = () => {
 						</label>
 					</div>
 					<div className="form-control mt-6">
-						<button className="btn btn-primary">Login</button>
+						<button className="btn btn-secondary btn-outline">Login</button>
 					</div>
 					<h4 className="text-xs md:text-sm text-center">Do not have an account? <Link className="text-blue-700" to="/register">Create Account</Link></h4>
 				</form>
 				<span className="divider m-0 p-0">or</span>
 				<div className="flex justify-center gap-10 items-center my-4">
-					<button onClick={handleGoogleLogin} className="btn btn-outline text-xl"><FaGoogle /></button>
-					<button onClick={handleGithubLogin} className="btn btn-outline text-xl"><FaGithub /></button>
+					<button onClick={handleGoogleLogin} className="btn btn-secondary btn-outline text-xl"><FaGoogle /></button>
+					<button onClick={handleGithubLogin} className="btn btn-secondary btn-outline text-xl"><FaGithub /></button>
 				</div>
 			</div>
 		</div>

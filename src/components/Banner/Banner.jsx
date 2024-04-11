@@ -6,10 +6,10 @@ import { Pagination } from 'swiper/modules';
 
 const Banner = () => {
   return (
-    <div className="grid grid-cols-1 gap-2 w-full mx-auto h-60 md:h-screen rounded-lg p-5 overflow-hidden">
-      <div className="col-span-1 border rounded-lg overflow-hidden">
+    <div className="grid grid-cols-1 gap-2 w-full mx-auto h-[60vh] md:h-screen rounded-2xl p-5 overflow-hidden">
+      <div className="col-span-1 border rounded-xl overflow-hidden">
         <Swiper
-          	spaceBetween={30}
+          spaceBetween={30}
           pagination={{
             clickable: true,
           }}

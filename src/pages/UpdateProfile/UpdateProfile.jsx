@@ -4,24 +4,24 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
-import auth from"../../firebase/firebase.config.js"
+import auth from "../../firebase/firebase.config.js"
 import toast from "../../components/Toast/Toast.jsx"
 
 export default function UpdateProfile() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const { user , updateProfile, setUser} = useContext(AuthContext);
+  const { user, updateProfile, setUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
-  	 updateProfile(auth.currentUser, {
-  	 	displayName : data.name,
-  	 	photoURL : data.photo
-  	 })
-  	 .then(result =>{
-  	 	toast("Successfully Upadated Profile","info","Reload To Show Updated Info");
-  	 })
-  	 .catch(err => {
-  	 	alert(err.message)
-  	 })
+    updateProfile(auth.currentUser, {
+      displayName: data.name,
+      photoURL: data.photo
+    })
+      .then(result => {
+        toast("Successfully Upadated Profile", "info", "Reload To Show Updated Info");
+      })
+      .catch(err => {
+        alert(err.message)
+      })
   }
 
   const [show, setShow] = useState(false);
@@ -43,9 +43,9 @@ export default function UpdateProfile() {
           <div className="form-control">
             <input defaultValue={user?.email} {...register("email", {})} type="email" name="email" placeholder="Email" className="border-b pb-3 mb-4 outline-none w-full" readOnly />
           </div>
-          
+
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Update</button>
+            <button className="btn btn-secondary btn-outline">Update</button>
           </div>
         </form>
       </div>

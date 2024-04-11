@@ -65,17 +65,17 @@ const Navbar = () => {
                             <div className="flex items-center gap-2 md:gap-5">
                                 <div className="tooltip tooltip-bottom mt-3" data-tip={user.displayName}>
                                     <div className="avatar">
-                                        <div className=" w-8 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <div className=" w-8 md:w-10 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
                                             <img src={user.photoURL} alt="user avatar" />
                                         </div>
                                     </div>
                                 </div>
-                                <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-primary hover:btn-outline">Logout</button></Link>
+                                <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-secondary btn-outline">Logout</button></Link>
                             </div>
                         ) : (
                             <div className="flex items-center gap-1 md:gap-4">
-                                <Link to="/register"><button className="btn md:btn-md btn-sm btn-primary hover:btn-outline">Register</button></Link>
-                                <Link to="/login"><button className="btn md:btn-md btn-sm btn-primary hover:btn-outline">Login</button></Link>
+                                <Link to="/register"><button className="btn md:btn-md btn-sm btn-secondary btn-outline">Register</button></Link>
+                                <Link to="/login"><button className="btn md:btn-md btn-sm btn-secondary btn-outline">Login</button></Link>
                             </div>
                         )}
                     </div>
