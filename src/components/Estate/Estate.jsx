@@ -2,9 +2,11 @@ import { BsTextarea } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { GrStatusUnknown } from "react-icons/gr";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
+import { Link, useLocation } from "react-router-dom";
 
 const Estate = ({ estate }) => {
     const {
+        id,
         estate_title,
         segment_name,
         description,
@@ -16,8 +18,8 @@ const Estate = ({ estate }) => {
         image
     } = estate;
     return (
-        <div>
-            <div className="card glass hover:shadow-xl shadow-secondary hover:scale-x-95 duration-300">
+        <div className="h-full">
+            <div className="card bg-white  hover:shadow-xl shadow-secondary hover:scale-x-95 duration-300">
                 <figure className=' relative'>
                     <span className=' absolute bottom-4 left-4 bg-orange-500 px-3 py-1 rounded-xl text-white text-xl'>{price}</span>
                     <img className="duration-300 hover:scale-110 w-full h-60" src={image} alt="car!" />
@@ -49,9 +51,11 @@ const Estate = ({ estate }) => {
                         </div>
                     </div>
                     <div className="divider m-0 p-0"></div>
-                    <p>{description}</p>
+                    <p><span className="font-semibold">Description</span> : {description.length > 70 ? description.slice(0, 70)+"..." : description}</p>
                     <div className="card-actions justify-start mt-3">
-                        <button className="btn btn-secondary btn-outline">View Property</button>
+                        <Link to={`estatedetails/${id}`}>
+                            <button className="btn btn-secondary btn-outline">View Property</button>
+                        </Link>
                     </div>
                 </div>
             </div>

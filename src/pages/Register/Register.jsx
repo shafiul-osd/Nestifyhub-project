@@ -1,13 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
 import toast from "../../components/Toast/Toast.jsx";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
+import { Avatar, TextField, Button, Grid, Checkbox, FormControlLabel, Typography } from "@mui/material";
 
 const Register = () => {
   const { createUser, updateProfile, auth, LogOut } = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  const firstInputRef = useRef(null);
+
+  useEffect(() => {
+    firstInputRef.current.focus();
+  }, []);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -18,7 +24,7 @@ const Register = () => {
     const photoURL = form.get("photo");
 
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
-      return toast("Password must have atleast 6 carecter and a lowerCase and upperCase letter", "warning", "Error");
+      return toast("Password must have at least 6 characters and contain both lowercase and uppercase letters", "warning", "Error");
     }
 
     createUser(email, password)
@@ -41,38 +47,73 @@ const Register = () => {
   };
 
   return (
-    <div className="w-[90%] md:w-[60%] mx-auto">
+    <div className="w-[90%] md:w-[40%] mx-auto pt-5">
       <Helmet>
-        <title>NestifyHub | Register </title>
+        <title>NestifyHub | Register</title>
       </Helmet>
-      <div className="my-20 border-2 rounded-2xl py-4 space-y-3">
-        <h1 className="text-2xl text-center my-4">Please Register</h1>
-        <form onSubmit={handleRegister} className="card-body ">
-          <div className="form-control">
-
-            <input type="text" name="name" placeholder="Name" className="border-b pb-3 mb-4 outline-none w-full" required />
-          </div>
-          <div className="form-control">
-
-            <input type="text" name="photo" placeholder="Photo Url" className="border-b pb-3 mb-4 outline-none w-full" required />
-          </div>
-          <div className="form-control">
-
-            <input type="email" name="email" placeholder="email" className="border-b pb-3 mb-4 outline-none w-full" required />
-          </div>
-          <div className="form-control">
-
-            <div className="relative">
-              <input type={show ? 'text' : 'password'} placeholder="password" className=" border-b pb-3 mb-4 outline-none w-full" name="password" required />
-              <div onClick={() => setShow(!show)} className="absolute top-1 right-3 text-lg">
-                {show ? <FaEyeSlash /> : <FaRegEye />}
-              </div>
+      <div className="my-20 border rounded-2xl bg-white ">
+        <div className="pt-5">
+          <Avatar sx={{ m: 'auto', mb: 2, bgcolor: 'secondary.main' }} />
+        <Typography component="h1" variant="h5" className="text-center">Register</Typography>
+        </div>
+        <form onSubmit={handleRegister} className="card-body">
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Name"
+            name="name"
+            placeholder="Name"
+            required
+            inputRef={firstInputRef}
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Photo URL"
+            name="photo"
+            placeholder="Photo Url"
+            required
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Email"
+            name="email"
+            placeholder="Email"
+            type="email"
+            required
+          />
+          <div className="relative">
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Password"
+              name="password"
+              placeholder="Password"
+              type={show ? 'text' : 'password'}
+              required
+            />
+            <div onClick={() => setShow(!show)} className="absolute top-9 right-3 text-lg">
+              {show ? <FaEyeSlash /> : <FaRegEye />}
             </div>
           </div>
-          <div className="form-control mt-6">
-            <button className="btn btn-secondary btn-outline">Register</button>
-          </div>
-          <h4 className="text-xs md:text-sm text-center">Already have an account? <Link className="text-blue-700" to="/login">Login</Link></h4>
+          <FormControlLabel
+            control={<Checkbox color="primary" />}
+            label="I agree to the terms and conditions"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3 }}
+          >
+            Register
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link to="/login" className="text-blue-700">Already have an account? Login</Link>
+            </Grid>
+          </Grid>
         </form>
       </div>
     </div>

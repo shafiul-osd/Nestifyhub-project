@@ -1,54 +1,94 @@
-import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { Helmet } from "react-helmet";
+import { useContext, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaRegEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
-import auth from "../../firebase/firebase.config.js"
-import toast from "../../components/Toast/Toast.jsx"
+import toast from "../../components/Toast/Toast.jsx";
+import { FaUser } from "react-icons/fa";
+import { Avatar, TextField, Button, Grid, Checkbox, FormControlLabel, Typography } from "@mui/material";
 
-export default function UpdateProfile() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const { user, updateProfile, setUser } = useContext(AuthContext);
+const UpdateProfile = () => {
+  const { user, updateProfile } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
+  const firstInputRef = useRef(null);
 
-  const onSubmit = (data) => {
-    updateProfile(auth.currentUser, {
-      displayName: data.name,
-      photoURL: data.photo
+  useEffect(() => {
+    firstInputRef.current.focus();
+  }, []);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const photoURL = form.get("photo");
+
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoURL
     })
-      .then(result => {
-        toast("Successfully Upadated Profile", "info", "Reload To Show Updated Info");
+      .then(() => {
+        toast("Successfully Updated Profile", "info", "Reload To Show Updated Info");
       })
-      .catch(err => {
-        alert(err.message)
+      .catch((error) => {
+        alert(error.message)
       })
   }
-
-  const [show, setShow] = useState(false);
 
   return (
     <div className="w-[90%] md:w-[60%] mx-auto">
       <Helmet>
-        <title>NestifyHub | Register </title>
+        <title>NestifyHub | Update Profile </title>
       </Helmet>
-      <div className="my-20 border-2 rounded-2xl py-4 space-y-3">
-        <h1 className="text-2xl text-center my-4">Update Profile Info</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
+      <div className="my-20 border-2 rounded-2xl py-4 space-y-3 bg-white w-[90%] md:w-[60%] mx-auto">
+        <div className="flex flex-col gap-5 items-center justify-center mb-4">
+          <div className="text-lg mr-2">
+            <Avatar sx={{ bgcolor: 'secondary.main' }}>
+              <FaUser />
+            </Avatar>
+          </div>
+          <Typography component="h1" variant="h5">Update Profile</Typography>
+        </div>
+        <form onSubmit={onSubmit} className="card-body ">
           <div className="form-control">
-            <input defaultValue={user?.displayName} {...register("name", {})} type="text" name="name" placeholder="Name" className="border-b pb-3 mb-4 outline-none w-full" required />
+            <TextField
+              defaultValue={user?.displayName}
+              type="text"
+              name="name"
+              label="Name"
+              placeholder="Name"
+              className="border-b pb-3 mb-4 outline-none w-full"
+              required
+              inputRef={firstInputRef}
+            />
           </div>
           <div className="form-control">
-            <input defaultValue={user?.photoURL} {...register("photo", {})} type="text" name="photo" placeholder="Photo Url" className="border-b pb-3 mb-4 outline-none w-full" required />
+            <TextField
+              defaultValue={user?.photoURL}
+              type="text"
+              name="photo"
+              label="Photo URL"
+              placeholder="Photo Url"
+              className="border-b pb-3 mb-4 outline-none w-full"
+              required
+            />
           </div>
           <div className="form-control">
-            <input defaultValue={user?.email} {...register("email", {})} type="email" name="email" placeholder="Email" className="border-b pb-3 mb-4 outline-none w-full" readOnly />
+            <TextField
+              defaultValue={user?.email}
+              type="email"
+              name="email"
+              label="Email"
+              placeholder="Email"
+              className="border-b pb-3 mb-4 outline-none w-full"
+              aria-readonly
+            />
           </div>
-
           <div className="form-control mt-6">
-            <button className="btn btn-secondary btn-outline">Update</button>
+            <Button type="submit" variant="contained" className="bg-blue-500 text-white hover:bg-blue-700 w-full py-3 rounded-md">Update</Button>
           </div>
         </form>
       </div>
     </div>
   );
-}
+};
+
+export default UpdateProfile;

@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <footer className="footer grid-rows-2 p-10 bg-neutral text-neutral-content">
+      <footer className="footer grid grid-cols-3 p-10 bg-neutral text-neutral-content">
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
@@ -23,27 +23,6 @@ const Footer = () => {
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Social</h6>
-          <a className="link link-hover">Twitter</a>
-          <a className="link link-hover">Instagram</a>
-          <a className="link link-hover">Facebook</a>
-          <a className="link link-hover">Github</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Explore</h6>
-          <a className="link link-hover">Features</a>
-          <a className="link link-hover">Enterprise</a>
-          <a className="link link-hover">Security</a>
-          <a className="link link-hover">Pricing</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Apps</h6>
-          <a className="link link-hover">Mac</a>
-          <a className="link link-hover">Windows</a>
-          <a className="link link-hover">iPhone</a>
-          <a className="link link-hover">Android</a>
         </nav>
       </footer>
     </div>

@@ -10,7 +10,6 @@ const Navbar = () => {
     const links = (
         <>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/userprofile">User Profile</NavLink></li>
             <li><NavLink to="/updateprofile">Update Profile</NavLink></li>
         </>
     );
@@ -34,8 +33,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className="w-full mx-auto">
-            <div className="navbar bg-base-100 w-full">
+        <div className="w-[95%] mx-auto fixed top-2 left-0 right-0 rounded-2xl bg-[rgba(255,255,255,0.2)] backdrop-blur-lg z-40">
+            <div className="navbar rounded-2xl border border-[rgba(0,0,0,0.3)] w-full">
                 <div className="navbar-start">
                     <div className="btn btn-ghost md:hidden text-2xl">
                         <label onClick={toggleDrawer}><HiMenuAlt4 /></label>
@@ -45,7 +44,7 @@ const Navbar = () => {
                         open={isOpen}
                         onClose={toggleDrawer}
                         direction='left'
-                        className='w-20'
+                        className=' left-0 w-20'
                     >
                         <ul className="menu w-full min-h-full bg-base-200 text-base-content">
                             {links}

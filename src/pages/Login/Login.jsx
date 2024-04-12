@@ -1,91 +1,136 @@
-import { useContext,useState } from 'react'
-import { Link } from "react-router-dom"
-import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx"
-import { Helmet } from "react-helmet";
-import { FaGoogle ,FaGithub,FaRegEye,FaEyeSlash} from "react-icons/fa";
-import { signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
-import auth from"../../firebase/firebase.config.js"
-import toast from"../../components/Toast/Toast.jsx"
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { FaGoogle, FaGithub, FaRegEye, FaEyeSlash } from 'react-icons/fa';
+import toast from '../../components/Toast/Toast.jsx';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import auth from '../../firebase/firebase.config.js';
+import { Navigate, useLocation, useNavigate,Link} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
+export default function SignIn() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state;
 
-const Login = () => {
-	
-	const { signInUser } = useContext(AuthContext);
-	const [show,setShow] = useState(false);
-	const googleProvider = new GoogleAuthProvider();
-	const githubProvider = new GithubAuthProvider();
-	
-	const handleGoogleLogin = ()=>{
-		signInWithPopup(auth,googleProvider)
-		.then(result => {
-			toast("Logged In Google","success","Success Login")
-		})
-		.catch(err => {
-			toast(err.message,"danger","Error")
-		})
-	};
-	
-	const handleGithubLogin = ()=>{
-		signInWithPopup(auth,githubProvider)
-		.then(result => {
-			toast("Successfully Logged In with Github","success","Success")
-		})
-		.catch(err => {
-			toast(err.message,"danger","Error")
-		})
-	}
-	
-	const handleLogin = (e) => {
-		e.preventDefault();
-		const form = new FormData(e.currentTarget);
-		const email = form.get("email");
-		const password = form.get("password");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const email = data.get('email');
+    const password = data.get('password');
 
-		signInUser(email, password)
-			.then(result => {
-				toast("Successfully Logged In","success","Success")
-			})
-			.catch(err => {
-				toast(err.message,"danger","Error");
-			})
-	}
-	return (
-		<div className="w-[90%] md:w-[70%] mx-auto">
-			<Helmet>
-				<title>NestifyHub | Login</title>
-			</Helmet>
-			<div className="my-20 border-2 rounded-xl py-3">
-				<h1 className="text-2xl text-center my-4">Please Login</h1>
-				<form onSubmit={handleLogin} className="card-body">
-					<div className="form-control">
-						
-						<input type="email" placeholder="Email" className="border-b pb-3 mb-4 outline-none w-full" name="email" required />
-					</div>
-					<div className="form-control">
-						
-						<div className="relative">
-							<input type={show ? 'text' : 'password'} placeholder="Password" className="border-b pb-3 mb-4 outline-none w-full" name="password" required />
-							<span onClick={()=>setShow(!show)} className="absolute top-1 right-3 text-lg p-0 m-0">
-								{show ? <FaEyeSlash/> : <FaRegEye/>}
-							</span>
-						</div>
-						<label className="label">
-							<a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-						</label>
-					</div>
-					<div className="form-control mt-6">
-						<button className="btn btn-secondary btn-outline">Login</button>
-					</div>
-					<h4 className="text-xs md:text-sm text-center">Do not have an account? <Link className="text-blue-700" to="/register">Create Account</Link></h4>
-				</form>
-				<span className="divider m-0 p-0">or</span>
-				<div className="flex justify-center gap-10 items-center my-4">
-					<button onClick={handleGoogleLogin} className="btn btn-secondary btn-outline text-xl"><FaGoogle /></button>
-					<button onClick={handleGithubLogin} className="btn btn-secondary btn-outline text-xl"><FaGithub /></button>
-				</div>
-			</div>
-		</div>
-	)
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate(state ? state : "/");
+      toast("Successfully Logged In", "success", "Success");
+    } catch (error) {
+      toast(error.message, "danger", "Error");
+    }
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const handleGoogleLogin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        toast("Logged In Google", "success", "Success Login");
+        navigate(state ? state : "/");
+      })
+      .catch(err => {
+        toast(err.message, "danger", "Error");
+      });
+  };
+
+  const handleGithubLogin = () => {
+    signInWithPopup(auth, githubProvider)
+      .then(result => {
+        navigate(state ? state : "/");
+        toast("Successfully Logged In with Github", "success", "Success");
+      })
+      .catch(err => {
+        toast(err.message, "danger", "Error");
+      });
+  };
+
+  const [show, setShow] = React.useState(false);
+
+  return (
+    <Container component="main" maxWidth="sm">
+      <Helmet>
+        <title>Nestify || Login Page</title>
+      </Helmet>
+      <CssBaseline />
+      <Box className="bg-white p-5 w-[100%] rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
+        <Typography component="h1" variant="h5">Sign in</Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <div className="relative">
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type={show ? 'text' : 'password'}
+              id="password"
+              autoComplete="current-password"
+            />
+            <span onClick={() => setShow(!show)} style={{ cursor: 'pointer' }} className='absolute top-9 right-5'>
+              {show ? <FaEyeSlash /> : <FaRegEye />}
+            </span>
+          </div>
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Login
+          </Button>
+          <Grid container className='text-xS flex justify-between items-center gap-5'>
+            <Grid item xs>
+              <Link>
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <p>Do Not Have an Account?<Link to="/register" className='text-blue-700'>Sign Up</Link></p>
+            </Grid>
+          </Grid>
+          <div className='grid grid-cols-1 gap-2 my-3'>
+            <Button onClick={handleGoogleLogin} variant="outlined" startIcon={<FaGoogle />}>
+              Sign In with Google
+            </Button>
+            <Button onClick={handleGithubLogin} variant="outlined" startIcon={<FaGithub />}>
+              Sign In with Github
+            </Button>
+          </div>
+        </Box>
+      </Box>
+    </Container>
+  );
 }
-
-export default Login
