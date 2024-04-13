@@ -16,6 +16,8 @@
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@nextui-org/react": "^2.2.10",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
     "firebase": "^10.10.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",

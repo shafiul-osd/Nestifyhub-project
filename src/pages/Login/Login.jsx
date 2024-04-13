@@ -16,6 +16,10 @@ import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, Github
 import auth from '../../firebase/firebase.config.js';
 import { Navigate, useLocation, useNavigate,Link} from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -62,7 +66,16 @@ export default function SignIn() {
       });
   };
 
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] =useState(false);
+
+  useEffect(() => {
+    Aos.init({
+      offset: 300,
+      duration: 1000,
+      easing: 'ease-in-sine',
+      delay: 200,
+    });
+  }, []);
 
   return (
     <Container component="main" maxWidth="sm">
@@ -70,7 +83,7 @@ export default function SignIn() {
         <title>Nestify || Login Page</title>
       </Helmet>
       <CssBaseline />
-      <Box className="bg-white p-5 w-[100%] rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box data-aos="fade-right" className="bg-white p-5 w-[100%] rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
         <Typography component="h1" variant="h5">Sign in</Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

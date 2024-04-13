@@ -1,6 +1,16 @@
-import React from 'react'
+import Aos from 'aos';
+import { useEffect } from 'react'
+import "aos/dist/aos.css";
 
 const Footer = () => {
+  useEffect(() => {
+		Aos.init({
+			offset: 300,
+			duration: 1000,
+			easing: 'ease-in-sine',
+			delay: 200,
+		});
+	}, []);
   return (
     <div>
       <footer className="footer grid grid-cols-3 p-10 bg-neutral text-neutral-content">

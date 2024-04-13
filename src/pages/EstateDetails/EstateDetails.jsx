@@ -15,7 +15,7 @@ const EstateDetails = () => {
     const { id } = useParams();
     const specificEstate = estates.find(estate => estate.id === id);
     return (
-        <div className="w-[97%] mx-auto -pt-5 ">
+        <div className="w-[97%] mx-auto -pt-5 min-h-screen">
             <Helmet>
                 <title>NestifyHub || Estate Details</title>
             </Helmet>

@@ -5,6 +5,8 @@ import { AuthContext } from "../../components/AuthProvider/AuthProvider.jsx";
 import toast from "../../components/Toast/Toast.jsx";
 import { FaUser } from "react-icons/fa";
 import { Avatar, TextField, Button, Grid, Checkbox, FormControlLabel, Typography } from "@mui/material";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const UpdateProfile = () => {
   const { user, updateProfile } = useContext(AuthContext);
@@ -33,12 +35,20 @@ const UpdateProfile = () => {
       })
   }
 
+  useEffect(() => {
+    Aos.init({
+      offset: 300,
+      duration: 1000,
+      easing: 'ease-in-sine',
+      delay: 200,
+    });
+  }, []);
   return (
     <div className="w-[90%] md:w-[60%] mx-auto">
       <Helmet>
         <title>NestifyHub | Update Profile </title>
       </Helmet>
-      <div className="my-20 border-2 rounded-2xl py-4 space-y-3 bg-white w-[90%] md:w-[60%] mx-auto">
+      <div data-aos="fade-up" className="my-20 border-2 rounded-2xl py-4 space-y-3 bg-white w-[90%] md:w-[60%] mx-auto">
         <div className="flex flex-col gap-5 items-center justify-center mb-4">
           <div className="text-lg mr-2">
             <Avatar sx={{ bgcolor: 'secondary.main' }}>
