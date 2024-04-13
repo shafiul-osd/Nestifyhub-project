@@ -13,6 +13,7 @@ const Navbar = () => {
         <>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/updateprofile">Update Profile</NavLink></li>
+            <li><NavLink to="/about">About Us</NavLink></li>
         </>
     );
 
@@ -43,7 +44,7 @@ const Navbar = () => {
         });
     }, []);
     return (
-        <div data-aos="fade-down" className="w-[95%] mx-auto fixed top-2 left-0 right-0 rounded-2xl bg-[rgba(255,255,255,0.2)] backdrop-blur-lg z-40">
+        <div data-aos="fade-down" className="w-[95%] mx-auto fixed top-2 left-0 right-0 rounded-2xl bg-[rgba(255,255,255,0.2)] backdrop-blur-lg z-[9999]">
             <div className="navbar rounded-2xl border border-[rgba(0,0,0,0.3)] w-full">
                 <div className="navbar-start">
                     <div className="btn btn-ghost md:hidden text-2xl">
@@ -79,12 +80,12 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <Link to="#"><button onClick={handleLogOut} className="btn md:btn-md btn-sm btn-secondary btn-outline">Logout</button></Link>
+                                <Link to="#"><button onClick={handleLogOut}  className="btn hover:bg-transparent hover:text-zinc-500 bg-blue-500 text-white px-4 rounded-lg ">Logout</button></Link>
                             </div>
                         ) : (
                             <div className="flex items-center gap-1 md:gap-4">
-                                <Link to="/register"><button className="btn md:btn-md btn-sm btn-secondary btn-outline">Register</button></Link>
-                                <Link to="/login"><button className="btn md:btn-md btn-sm btn-secondary btn-outline">Login</button></Link>
+                                <Link to="/register"><button className="btn hover:border hover:bg-transparent hover:text-zinc-500 bg-blue-500 text-white px-4 rounded-lg ">Register</button></Link>
+                                <Link to="/login"><button className="btn bg-green-500 text-white px-4 rounded-lg hover:bg-transparent btnout hover:text-zinc-500 ">Login</button></Link>
                             </div>
                         )}
                     </div>

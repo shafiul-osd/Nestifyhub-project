@@ -1,8 +1,19 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Site Details
 
-Currently, two official plugins are available:
+* #####  Name : NestifyHub
+* ##### [Live Site Link Click here to visit](www.google.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+* ##### __Sign UP :__ You can Sign Up With Your Email Password and using google , github also.
+* ##### __Update Profile :__ You Can Easily Update Your Name Profile Picture And Using Update Profile Form.
+* ##### __Slider :__ Banner Section have a  Beautiful Slider You can Easily Slide them By Swiping and Clicking on The Bullet icons.
+* ##### __Animation :__ Eye catching Animation Satisfied You (Not bad)
+* ##### __Animated Logo and Profile Picture :__ in Navbar Section you Can see Our LOgo And Your Profile Picture are Animating Like Your HeartBits 💓 .
+* ##### __Beautifull UI :__ Our UI  make You Happy (Not soo Good)😒 
+
+# Used Packages
+* ###### [AOS Package,](https://www.npmjs.com/package/aos)
+* ###### [ Animate.css](https://animate.style/)
+* ###### [ React-leaflet](https://react-leaflet.js.org/)
+* ###### [Swiper slider](https://swiperjs.com/)

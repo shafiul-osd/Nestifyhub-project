@@ -18,47 +18,35 @@ const Estate = ({ estate }) => {
         image
     } = estate;
     return (
-        <div className="h-full">
-            <div className="card bg-white  hover:shadow-xl shadow-secondary hover:scale-x-95 duration-300">
-                <figure className=' relative'>
-                    <span className=' absolute bottom-4 left-4 bg-orange-500 px-3 py-1 rounded-xl text-white text-xl'>{price}</span>
-                    <img className="duration-300 hover:scale-110 w-full h-60" src={image} alt="car!" />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">{estate_title}</h2>
-                    <h2>{segment_name}</h2>
-                    <div className="divider m-0 p-0"></div>
-                    <div className="grid grid-cols-2 gap-y-2">
-                        <div className="">
-                            <span className="flex items-center gap-3"><BsTextarea />{area}</span>
-                        </div>
-                        <div className="">
-                            <span className="flex items-center gap-3"><CiLocationOn /> {location}</span>
-                        </div>
-                        <div className="">
-                            <span className="flex items-center gap-3"><GrStatusUnknown />{status}</span>
-                        </div>
-                    </div>
-                    <div className="divider m-0 p-0"></div>
-                    <div className="">
-                        <h2 className="text-left mb-2 flex items-center gap-1 font-bold"><MdOutlineFeaturedPlayList />Facilities</h2>
-                        <div className="">
-                            <ul className="list-disc grid grid-cols-2 ml-8">
-                                {
-                                    facilities.map((f, i) => <li key={i}>{f}</li>)
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="divider m-0 p-0"></div>
-                    <p><span className="font-semibold">Description</span> : {description.length > 70 ? description.slice(0, 70)+"..." : description}</p>
-                    <div className="card-actions justify-start mt-3">
-                        <Link to={`estatedetails/${id}`}>
-                            <button className="btn btn-secondary btn-outline">View Property</button>
-                        </Link>
-                    </div>
+        <div className="bg-white dark:bg-zinc-800 shadow-lg rounded-lg overflow-hidden">
+            <div className="w-full h-48 overflow-hidden">
+                <img src={image} alt="Property Image" className="w-full h-48 object-cover hover:scale-105 duration-500" />
+            </div>
+            <div className="p-4">
+                <h2 className="text-xl font-bold text-zinc-800 dark:text-white">L{estate_title}</h2>
+                <p className="text-md text-zinc-900 dark:text-zinc-400">{segment_name}</p>
+                <p className="text-sm text-zinc-700 dark:text-zinc-300">{description.length > 70 ? description.slice(0, 70) + "..." : description} </p>
+                <div className="flex items-center justify-between mt-4">
+                    <p className="text-lg font-bold text-blue-500 dark:text-blue-300">{price}</p>
+                    <p className="text-sm bg-green-300 px-3 py-1 text-white rounded-xl">Status : {status}</p>
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Area : {area}</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">Location : {location}</p>
+                </div>
+                <div className="">
+                    <h2 className="font-semibold">Facilities : </h2>
+                    <ul className="list-disc ml-6 mt-2">
+                        <li className="text-sm text-zinc-600 dark:text-zinc-400">Private beach</li>
+                        <li className="text-sm text-zinc-600 dark:text-zinc-400">Deck</li>
+                        <li className="text-sm text-zinc-600 dark:text-zinc-400">Boathouse</li>
+                    </ul>
+                </div>
+                <div className="mt-5 text-center">
+                    <Link to={`/estatedetails/${id}`}><button className=" mx-auto btn w-full bg-blue-500 text-white p-2 rounded-lg ">View Property</button></Link>
                 </div>
             </div>
+
         </div>
     );
 };

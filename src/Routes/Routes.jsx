@@ -7,6 +7,7 @@ import UpdateProfile from "../pages/UpdateProfile/UpdateProfile.jsx"
 import EstateDetails from "../pages/EstateDetails/EstateDetails.jsx";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute.jsx";
 import ErrorPage from "../pages/404/404.jsx";
+import About from "../pages/About/About.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
 			{
 				path: "*",
 				element: <ErrorPage/>
+			},
+			{
+				path: "/about",
+				element: <PrivateRoute><About/></PrivateRoute>
 			}
 		]
 	},

@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* a.active{
-    border: 1px solid #ff008c;
+
+a.active{
+    border: 1px solid #0062ff;
     background: transparent !important;
     color: black !important;
-} */
+} 
+.leaflet-container {
+    width: 100%;
+    height: 50vh;
+}
