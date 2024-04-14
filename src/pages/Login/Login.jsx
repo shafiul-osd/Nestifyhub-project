@@ -14,12 +14,13 @@ import { FaGoogle, FaGithub, FaRegEye, FaEyeSlash } from 'react-icons/fa';
 import toast from '../../components/Toast/Toast.jsx';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import auth from '../../firebase/firebase.config.js';
-import { Navigate, useLocation, useNavigate,Link} from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { Divider } from '@mui/material';
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ export default function SignIn() {
       });
   };
 
-  const [show, setShow] =useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     Aos.init({
@@ -83,10 +84,10 @@ export default function SignIn() {
         <title>Nestify || Login Page</title>
       </Helmet>
       <CssBaseline />
-      <Box data-aos="fade-right" className=" bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm p-5 w-[100%] rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box data-aos="fade-right" className="w-full p-5 bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
         <Typography component="h1" variant="h5">Sign in</Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box className='w-[95%]' component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
@@ -131,9 +132,10 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <p>Do Not Have an Account?<Link to="/register" className='text-blue-700'>Sign Up</Link></p>
+              <p>Don't have account?<Link to="/register" className='text-blue-700'>Sign Up</Link></p>
             </Grid>
           </Grid>
+          <Divider className='my-2'>or</Divider>
           <div className='grid grid-cols-1 gap-2 my-3'>
             <Button onClick={handleGoogleLogin} variant="outlined" startIcon={<FaGoogle />}>
               Sign In with Google

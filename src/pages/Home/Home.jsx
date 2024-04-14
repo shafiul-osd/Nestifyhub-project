@@ -8,23 +8,12 @@ import "aos/dist/aos.css";
 
 const Home = () => {
 	const estates = useLoaderData();
-
-	useEffect(() => {
-		Aos.init({
-			offset: 100,
-			duration: 1000,
-			easing: 'ease-in-sine',
-			delay: 200,
-		});
-	}, []);
 	return (
 		<div>
 			<Helmet>
 				<title>NestifyHub | Home Page</title>
 			</Helmet>
-			<div className="" data-aos="fade-left" >
-				<Banner />
-			</div>
+			<Banner />
 			<div className='w-[95%] mx-auto'>
 				<h1 className="text-2xl font-bold text-center my-10" data-aos="fade-down" >Estates</h1>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10" data-aos="fade-right" >

@@ -2,7 +2,7 @@
 # Site Details
 
 * #####  Name : NestifyHub
-* ##### [Live Site Link Click here to visit](www.google.com)
+* ##### [Live Site Link Click here to visit](https://assignment-9-dd8f2.web.app)
 
 # Features
 * ##### __Sign UP :__ You can Sign Up With Your Email Password and using google , github also.

@@ -48,7 +48,7 @@ const UpdateProfile = () => {
       <Helmet>
         <title>NestifyHub | Update Profile </title>
       </Helmet>
-      <div data-aos="fade-up" className="my-20 border-2 rounded-2xl py-4 space-y-3 bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm w-[90%] md:w-[60%] mx-auto">
+      <div data-aos="fade-up" className="my-20 border-2 rounded-2xl py-4 space-y-3 bg-[rgba(255,255,255,0.2)] border-[rgba(0,0,0,0.3)] backdrop-blur-sm w-full md:w-[60%] mx-auto">
         <div className="flex flex-col gap-5 items-center justify-center mb-4">
           <div className="text-lg mr-2">
             <Avatar sx={{ bgcolor: 'secondary.main' }}>

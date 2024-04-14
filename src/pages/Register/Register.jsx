@@ -63,12 +63,12 @@ const Register = () => {
       <Helmet>
         <title>NestifyHub | Register</title>
       </Helmet>
-      <div className="my-20 border rounded-2xl  bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm" data-aos="fade-left">
-        <div className="pt-5">
-          <Avatar sx={{ m: 'auto', mb: 2, bgcolor: 'secondary.main' }} />
-          <Typography component="h1" variant="h5" className="text-center">Register</Typography>
-        </div>
-        <form onSubmit={handleRegister} className="card-body">
+      <div className="">
+        <form data-aos="fade-down" onSubmit={handleRegister} className="card-body my-20 rounded-2xl  bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm">
+          <div className="pt-5">
+            <Avatar sx={{ m: 'auto', mb: 2, bgcolor: 'secondary.main' }} />
+            <Typography component="h1" variant="h5" className="text-center">Register</Typography>
+          </div>
           <TextField
             fullWidth
             margin="normal"
