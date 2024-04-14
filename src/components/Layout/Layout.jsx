@@ -21,7 +21,7 @@ const Layout = () => {
   return (
     <div>
       <ReactNotifications />
-      <div className="max-w-[1440px] mx-auto pt-20 bg-[url(/bg.jpg)]  bg-cover bg-center bg-fixed bg-no-repeat">
+      <div className="max-w-[1440px] mx-auto pt-20 bg-[url(/bg.svg)]  bg-cover bg-center bg-fixed bg-no-repeat">
         <Navbar />
         <Outlet />
         <Footer />

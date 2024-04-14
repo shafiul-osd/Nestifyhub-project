@@ -13,7 +13,7 @@
 * ##### __Beautifull UI :__ Our UI  make You Happy (Not soo Good)😒 
 
 # Used Packages
-* ###### [AOS Package,](https://www.npmjs.com/package/aos)
-* ###### [ Animate.css](https://animate.style/)
-* ###### [ React-leaflet](https://react-leaflet.js.org/)
-* ###### [Swiper slider](https://swiperjs.com/)
+ ###### [AOS Package,](https://www.npmjs.com/package/aos)
+ ###### [ Animate.css](https://animate.style/)
+ ###### [ React-leaflet](https://react-leaflet.js.org/)
+ ###### [Swiper slider](https://swiperjs.com/)

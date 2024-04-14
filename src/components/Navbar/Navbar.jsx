@@ -22,7 +22,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         LogOut()
             .then(result => {
-                toast("Logged Out", "info", "Logged Out");
+                toast("Logged Out", "success", "Logged Out");
             })
             .catch(err => {
                 toast(err.message, "danger", "Failed");
@@ -44,7 +44,7 @@ const Navbar = () => {
         });
     }, []);
     return (
-        <div data-aos="fade-down" className="w-[95%] mx-auto fixed top-2 left-0 right-0 rounded-2xl bg-[rgba(255,255,255,0.2)] backdrop-blur-lg z-[9999]">
+        <div data-aos="fade-down" className="w-[98%] mx-auto fixed top-2 left-0 right-0 rounded-2xl bg-[rgba(255,255,255,0.2)] backdrop-blur-md z-[9999]">
             <div className="navbar rounded-2xl border border-[rgba(0,0,0,0.3)] w-full">
                 <div className="navbar-start">
                     <div className="btn btn-ghost md:hidden text-2xl">

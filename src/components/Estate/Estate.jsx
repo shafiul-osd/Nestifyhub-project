@@ -18,7 +18,7 @@ const Estate = ({ estate }) => {
         image
     } = estate;
     return (
-        <div className="bg-white dark:bg-zinc-800 shadow-lg rounded-lg overflow-hidden">
+        <div className="bg-white border border-[rgba(0,0,0,0.3)] shadow-lg rounded-lg overflow-hidden">
             <div className="w-full h-48 overflow-hidden">
                 <img src={image} alt="Property Image" className="w-full h-48 object-cover hover:scale-105 duration-500" />
             </div>

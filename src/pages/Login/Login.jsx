@@ -83,7 +83,7 @@ export default function SignIn() {
         <title>Nestify || Login Page</title>
       </Helmet>
       <CssBaseline />
-      <Box data-aos="fade-right" className="bg-white p-5 w-[100%] rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box data-aos="fade-right" className=" bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm p-5 w-[100%] rounded-2xl mb-16" sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
         <Typography component="h1" variant="h5">Sign in</Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

@@ -24,12 +24,12 @@ export default function About() {
                 <p className="mb-4 md:w-[60%] mx-auto">Welcome to NestifyHub, our real estate agency, where we strive to make your dream home a reality. Our team is dedicated to providing exceptional service and expertise to help you find the perfect residential property.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div data-aos="fade-left" className="bg-white p-4 rounded-lg">
+                <div data-aos="fade-left" className=" bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm p-4 rounded-lg">
                     <h2 className="text-xl font-bold mb-2">Our Mission</h2>
                     <p>At NestifyHub, our mission is to exceed your expectations by offering personalized attention, integrity, and professionalism throughout your home buying journey. We are committed to helping you find a place you'll love to call home.</p>
                 </div>
 
-                <div data-aos="fade-right" className="bg-white p-4 rounded-lg">
+                <div data-aos="fade-right" className=" bg-[rgba(255,255,255,0.2)] border border-[rgba(0,0,0,0.3)] backdrop-blur-sm p-4 rounded-lg">
                     <h2 className="text-xl font-bold mb-2">Our Vision</h2>
                     <p>Our vision at NestifyHub is to be the leading real estate agency in the region, known for our unwavering dedication to client satisfaction and our ability to match individuals and families with homes that perfectly suit their needs and lifestyles.</p>
                 </div>
@@ -37,7 +37,7 @@ export default function About() {
 
             <div className="mt-8 ">
                 <h2 className="text-2xl font-bold mb-4">Visit Us</h2>
-                <div data-aos="fade-right" className="h-[50vh] rounded-2xl overflow-hidden my-10">
+                <div data-aos="fade-right" className="h-[50vh] rounded-2xl border border-[rgba(0,0,0,0.3)] overflow-hidden my-10">
                     <MapContainer center={mapCenter} zoom={10} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
