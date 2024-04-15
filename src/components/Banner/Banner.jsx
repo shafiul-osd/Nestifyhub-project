@@ -10,9 +10,9 @@ const Banner = () => {
   useEffect(() => {
     Aos.init({
       offset: 100,
-      duration: 1000,
+      duration: 800,
       easing: 'ease-in-sine',
-      delay: 200,
+      delay: 150,
     });
   }, []);
   return (

@@ -8,10 +8,10 @@ export default function About() {
     const mapCenter = [24.9828, 89.2978]; // Coordinates of the desired location
     useEffect(() => {
         Aos.init({
-            offset: 300,
-            duration: 1000,
+            offset: 200,
+            duration: 800,
             easing: 'ease-in-sine',
-            delay: 200,
+            delay: 150,
         });
     }, []);
     return (

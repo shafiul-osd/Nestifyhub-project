@@ -23,7 +23,7 @@ const Estate = ({ estate }) => {
                 <img src={image} alt="Property Image" className="w-full h-48 object-cover hover:scale-105 duration-500" />
             </div>
             <div className="p-4">
-                <h2 className="text-xl font-bold text-zinc-800 dark:text-white">L{estate_title}</h2>
+                <h2 className="text-xl font-bold text-zinc-800 dark:text-white">{estate_title}</h2>
                 <p className="text-md text-zinc-900 dark:text-zinc-400">{segment_name}</p>
                 <p className="text-sm text-zinc-700 dark:text-zinc-300">{description.length > 70 ? description.slice(0, 70) + "..." : description} </p>
                 <div className="flex items-center justify-between mt-4">

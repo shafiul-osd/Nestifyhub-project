@@ -5,10 +5,10 @@ import "aos/dist/aos.css";
 const Footer = () => {
   useEffect(() => {
 		Aos.init({
-			offset: 300,
-			duration: 1000,
+			offset: 200,
+			duration: 800,
 			easing: 'ease-in-sine',
-			delay: 200,
+			delay: 150,
 		});
 	}, []);
   return (
