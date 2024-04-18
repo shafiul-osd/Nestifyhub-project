@@ -5,34 +5,35 @@ import "aos/dist/aos.css";
 const Footer = () => {
   useEffect(() => {
 		Aos.init({
-			offset: 200,
-			duration: 800,
+			offset: 300,
+			duration: 600,
 			easing: 'ease-in-sine',
-			delay: 150,
+			delay: 200,
 		});
 	}, []);
   return (
     <div>
-      <footer className="footer grid grid-cols-3 p-10 bg-neutral text-neutral-content">
+      <footer className="footer grid grid-cols-1 md:grid-cols-3 p-10 bg-neutral text-neutral-content">
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">Residential Property Listings</a>
+          <a className="link link-hover">Buyer Representation</a>
+          <a className="link link-hover">Seller Representation</a>
+          <a className="link link-hover">Mortgage Assistance</a>
+          <a className="link link-hover">Legal Services</a>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
+          <a className="link link-hover">About Us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover">Press Kit</a>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <a className="link link-hover">Terms of Use</a>
+          <a className="link link-hover">Privacy Policy</a>
+          <a className="link link-hover">Cookie Policy</a>
         </nav>
       </footer>
     </div>
