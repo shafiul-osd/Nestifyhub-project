@@ -28,7 +28,9 @@ const Register = () => {
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
       return toast("Password must have at least 6 characters and contain both lowercase and uppercase letters", "warning", "Error");
     }
-
+    if(email == "" || name == "" || photoURL == "" || password == ""){
+      return toast("Fullfill All Required info", "danger", "Error");
+    }
     createUser(email, password)
       .then((userCredential) => {
         updateProfile(userCredential.user, {
@@ -36,7 +38,6 @@ const Register = () => {
           photoURL: photoURL
         })
           .then(() => {
-            LogOut(auth);
             toast("Registered Successfully", "success", "Success");
           })
           .catch((error) => {
@@ -75,7 +76,6 @@ const Register = () => {
             label="Name"
             name="name"
             placeholder="Name"
-            required
             inputRef={firstInputRef}
           />
           <TextField
@@ -84,7 +84,6 @@ const Register = () => {
             label="Photo URL"
             name="photo"
             placeholder="Photo Url"
-            required
           />
           <TextField
             fullWidth
@@ -93,7 +92,6 @@ const Register = () => {
             name="email"
             placeholder="Email"
             type="email"
-            required
           />
           <div className="relative">
             <TextField
@@ -103,7 +101,6 @@ const Register = () => {
               name="password"
               placeholder="Password"
               type={show ? 'text' : 'password'}
-              required
             />
             <div onClick={() => setShow(!show)} className="absolute top-9 right-3 text-lg">
               {show ? <FaEyeSlash /> : <FaRegEye />}
